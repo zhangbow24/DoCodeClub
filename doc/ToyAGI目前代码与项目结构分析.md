@@ -1151,7 +1151,7 @@ python-dotenv==1.0.0
 ### 4.`.env`
 
 ```env
-DEEPSEEK_API_KEY=sk-483e38224e9a43c5845168fa2a3c3f8c
+DEEPSEEK_API_KEY=****
 SECRET_KEY=2021012167
 ```
 
