@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笃小实 - 您的AI助手</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>笃小实</h1>
+            <p>您的个人AI助手</p>
+        </header>
+        
+        <div class="tabs">
+            <button id="tab-chat" class="tab-btn active">聊天</button>
+            <button id="tab-tasks" class="tab-btn">多任务处理</button>
+        </div>
+        
+        <div id="chat-section" class="section active">
+            <div id="chat-container">
+                <div id="chat-messages">
+                    <div class="message assistant">
+                        <div class="message-content">
+                            你好！我是笃小实，有什么可以帮助您的吗?
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="chat-input-container">
+                    <textarea id="chat-input" placeholder="在此输入您的消息..."></textarea>
+                    <button id="send-btn">发送</button>
+                    <button id="clear-chat-btn">清空聊天</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tasks-section" class="section">
+            <div id="task-container">
+                <div id="new-task-container">
+                    <textarea id="task-input" placeholder="在此描述您的任务..."></textarea>
+                    <button id="create-task-btn">创建任务</button>
+                </div>
+                
+                <div id="task-list-container">
+                    <h3>任务列表</h3>
+                    <div id="task-list"></div>
+                    <button id="refresh-tasks-btn">刷新</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
