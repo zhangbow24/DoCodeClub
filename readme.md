@@ -1,7 +1,8 @@
 
 
-# 笃实书院第一届DoCode营 项目设计
+# 笃实书院 DOCODE CLUB
 
-![](doc/pic/logo.jpg)
+![](logo.jpg)
 
 > ### 欢迎大家提建议！
+
