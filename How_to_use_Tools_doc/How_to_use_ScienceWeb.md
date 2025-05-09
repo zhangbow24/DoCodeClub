@@ -1,0 +1,3 @@
+# How_to_use_ScienceWeb <img src="pic/meme_pic5.gif" alt="meme_pic5" style="zoom:33%;" />
+
+拥护那德谟克拉西（民主）和[赛因斯（科学）](https://wallesspku.space/)两位先生……
