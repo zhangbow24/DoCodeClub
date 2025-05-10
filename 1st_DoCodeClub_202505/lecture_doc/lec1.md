@@ -25,6 +25,8 @@ Git 是目前最流行的分布式版本控制系统，它能够:
 - 提供强大的分支管理功能
 - 轻松回溯到任意历史版本
 
+<img src="lec1.assets/image-20250510222139983.png" alt="image-20250510222139983" style="zoom: 80%;" />
+
 GitHub 是基于 Git 技术的代码托管平台，为我们提供了项目管理、代码审查和团队协作的功能。
 
 ### Step 2.2 Git 安装
@@ -53,13 +55,13 @@ sudo apt install git
 
 安装完成后，需要设置你的身份信息（用于记录代码提交者）：
 
-bash
-
-复制
-
-```
+```bash
 git config --global user.name "你的GitHub用户名"
 git config --global user.email "你的GitHub注册邮箱"
+
+// 用于验证
+git config --list
+//你应当可以看到你的用户名和邮箱
 ```
 
 ### Step 2.4 生成SSH密钥并绑定到GitHub
@@ -185,6 +187,10 @@ Anaconda 是一个开源的 Python 发行版，专为科学计算、数据分析
 - **包管理**：通过 conda 命令快速安装/更新/卸载各种 Python 包
 - **内置工具**：包含 Jupyter Notebook、Spyder IDE 等开发工具
 - **预装库**：包含 NumPy、Pandas、Matplotlib 等数据科学常用库
+
+![image-20250510223403171](lec1.assets/image-20250510223403171.png)
+
+![image-20250510223441342](lec1.assets/image-20250510223441342.png)
 
 ### Step 3.2 安装 Anaconda
 
