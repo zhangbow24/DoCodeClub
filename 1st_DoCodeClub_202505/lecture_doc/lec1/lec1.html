@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Docode Club Lab1: 项目认知与环境搭建</title>
+    <style>
+        @font-face {
+            font-family: 'NotoSansSC';
+            src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', '微软雅黑', 'SimHei', '黑体', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .controls button {
+            margin: 0 10px;
+            padding: 8px 15px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .controls button:hover {
+            background-color: #0052a3;
+        }
+        .controls span {
+            font-size: 18px;
+            margin: 0 15px;
+            line-height: 35px;
+        }
+        .slide {
+            display: none;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 8px;
+            position: relative;
+            min-height: 500px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide-title {
+            font-size: 32px;
+            color: #0066cc;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .slide-content {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .slide-image {
+            width: 80%;
+            max-height: 400px;
+            margin: 20px auto;
+            text-align: center;
+            display: block;
+        }
+        .slide-image img {
+            max-width: 100%;
+            max-height: 380px;
+            object-fit: contain;
+            border: 2px solid black;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .column {
+            width: 48%;
+        }
+        .code-block {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0066cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 768px) {
+            .column {
+                width: 100%;
+            }
+            .slide {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="controls">
+            <button id="prev-btn">上一页</button>
+            <span id="slide-counter">1 / 20</span>
+            <button id="next-btn">下一页</button>
+            <button id="download-btn">下载PPT</button>
+        </div>
+        
+        <!-- Slide 1: Cover -->
+        <div class="slide active">
+            <div class="slide-title">1st Docode Club Lab1：项目认知与环境搭建</div>
+            <div class="slide-image">
+                <img src="pic/pic1.png" alt="DoCode Club 封面图片">
+            </div>
+            <div class="slide-content" style="text-align: center;">
+                <p>笃实书院第一届 DoCode 营的小项目</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Contents -->
+        <div class="slide">
+            <div class="slide-title">目录</div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="column">
+                        <ul>
+                            <li>Step 1：注册 GitHub 账号</li>
+                            <li>Step 2：Git 安装与基本使用</li>
+                            <li>Step 3：Anaconda 安装与使用</li>
+                            <li>Step 4：Python 基础入门</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul>
+                            <li>Step 5：项目结构与开发规范</li>
+                            <li>Step 6：作业提交规范</li>
+                            <li>Step 7：常见问题与解决方案</li>
+                            <li>Step 8：参考资料与学习资源</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Step 1 -->
+        <div class="slide">
+            <div class="slide-title">Step 1：注册 GitHub 账号</div>
+            <div class="slide-image">
+                <img src="pic/pic2.png" alt="GitHub注册界面截图">
+            </div>
+            <div class="slide-content">
+                <p><strong>网站地址：</strong><a href="https://github.com/" target="_blank">https://github.com/</a></p>
+                <p><strong>项目地址：</strong><a href="https://github.com/caoye04/DoCodeClub" target="_blank">caoye04/DoCodeClub</a></p>
+                <p>GitHub 是全球最大的代码托管平台，也是开发者社区，提供代码版本控制、协作开发和项目管理功能。注册账号是参与 DoCode 营项目的第一步。</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Step 2.1-2.2 -->
+        <div class="slide">
+            <div class="slide-title">Step 2：Git 安装与基本使用</div>
+            <div class="slide-content">
+                <h3>Step 2.1 什么是 Git？</h3>
+                <p>Git 是目前最流行的分布式版本控制系统，它能够:</p>
+                <ul>
+                    <li>跟踪代码变更历史</li>
+                    <li>支持多人协作开发</li>
+                    <li>提供强大的分支管理功能</li>
+                    <li>轻松回溯到任意历史版本</li>
+                </ul>
+                <p>GitHub 是基于 Git 技术的代码托管平台，为我们提供了项目管理、代码审查和团队协作的功能。</p>
+                
+                <div class="slide-image">
+                    <img src="pic/pic3.png" alt="Git工作流示意图">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-title">Step 2：Git 安装与基本使用</div>
+            <div class="slide-content">
+                <h3>Step 2.2 Git 安装</h3>
+                <div class="two-column">
+                    <div class="column">
+                        <p><strong>Windows 系统：</strong></p>
+                        <ol>
+                            <li>访问 Git 官网 <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>，下载最新版安装包</li>
+                            <li>运行安装程序，按默认设置一路"下一步"即可完成安装</li>
+                            <li>验证安装：在桌面空白处右键，选择"Git Bash Here"，输入 git --version 查看版本号</li>
+                        </ol>
+                    </div>
+                    <div class="column">
+                        <p><strong>macOS 系统：</strong></p>
+                        <p>使用 Homebrew 安装（如未安装 Homebrew，请先访问 <a href="https://brew.sh/" target="_blank">https://brew.sh/</a> 安装）：</p>
+                        <div class="code-block">brew install git</div>
+                        
+                        <p><strong>Linux 系统（Debian/Ubuntu）：</strong></p>
+                        <div class="code-block">sudo apt update
+sudo apt install git</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <!-- Slide 5: Step 2.3-2.4 -->
+        <div class="slide">
+            <div class="slide-title">Git 配置</div>
+            <div class="slide-content">
+                <h3>Step 2.3 Git 首次配置</h3>
+                <p>安装完成后，需要设置你的身份信息（用于记录代码提交者）：</p>
+                <div class="code-block">git config --global user.name "你的GitHub用户名"
+git config --global user.email "你的GitHub注册邮箱"</div>
+
+                <h3>Step 2.4 生成SSH密钥并绑定到GitHub</h3>
+                <p>使用SSH密钥可以让你无需每次都输入用户名和密码，就能安全地与GitHub仓库进行通信。</p>
+                
+                <ol>
+                    <li>生成SSH密钥</li>
+                </ol>
+                <div class="code-block">ssh-keygen -t ed25519 -C "你的GitHub邮箱"
+# 或者
+ssh-keygen -t rsa -b 4096 -C "你的GitHub邮箱"</div>
+                <p>执行过程中会询问：密钥保存位置（建议使用默认路径，直接按Enter）、是否设置密码（可以设置，也可以留空直接按Enter）</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Step 2.4 (continued) -->
+        <div class="slide">
+            <div class="slide-title">SSH密钥配置</div>
+            <div class="slide-content">
+                <ol start="2">
+                    <li>查看并复制公钥</li>
+                </ol>
+                <div class="code-block"># Windows/Linux
+cat ~/.ssh/id_ed25519.pub
+# 或者 cat ~/.ssh/id_rsa.pub（如果使用的是RSA密钥）
+
+# macOS
+pbcopy < ~/.ssh/id_ed25519.pub
+# 或者 pbcopy < ~/.ssh/id_rsa.pub（如果使用的是RSA密钥）</div>
+                <p>Windows用户也可以直接打开文件 C:\Users\你的用户名\.ssh\id_ed25519.pub 查看内容。</p>
+                
+                <ol start="3">
+                    <li>将公钥添加到GitHub</li>
+                </ol>
+                <ul>
+                    <li>登录你的GitHub账号</li>
+                    <li>点击右上角头像 → Settings</li>
+                    <li>左侧菜单找到"SSH and GPG keys"</li>
+                    <li>点击"New SSH key"按钮</li>
+                    <li>在Title框中为这个密钥取个名字（如"我的笔记本"）</li>
+                    <li>在Key框中粘贴刚才复制的公钥内容</li>
+                    <li>点击"Add SSH key"按钮保存</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Step 2.4 (continued-2) and 2.5 -->
+        <div class="slide">
+            <div class="slide-title">SSH连接测试与Git命令</div>
+            <div class="slide-content">
+                <ol start="4">
+                    <li>测试SSH连接</li>
+                </ol>
+                <div class="code-block">ssh -T git@github.com</div>
+                <p>初次连接会询问你是否信任GitHub，输入 yes 并回车。如果看到"Hi 用户名! You've successfully authenticated"的消息，则表示SSH配置成功。</p>
+                
+                <ol start="5">
+                    <li>使用SSH URL克隆仓库</li>
+                </ol>
+                <div class="code-block"># 使用SSH URL（推荐配置SSH后使用）
+git clone git@github.com:用户名/DoCodeClub.git
+# 而不是HTTPS URL
+# git clone https://github.com/用户名/DoCodeClub.git</div>
+
+
+                <h3>Step 2.5 Git 常用命令</h3>
+                <table>
+                    <tr>
+                        <th>命令</th>
+                        <th>功能说明</th>
+                    </tr>
+                    <tr>
+                        <td>git init</td>
+                        <td>初始化本地仓库，在当前目录创建 Git 仓库</td>
+                    </tr>
+                    <tr>
+                        <td>git clone &lt;仓库URL&gt;</td>
+                        <td>从远程克隆一个仓库到本地</td>
+                    </tr>
+                    <tr>
+                        <td>git status</td>
+                        <td>查看工作区和暂存区状态，显示哪些文件被修改</td>
+                    </tr>
+                    <tr>
+                        <td>git add &lt;文件&gt;</td>
+                        <td>将指定文件添加到暂存区</td>
+                    </tr>
+                    <tr>
+                        <td>git commit -m "提交说明"</td>
+                        <td>将暂存区内容提交到本地仓库</td>
+                    </tr>
+                    <tr>
+                        <td>git push</td>
+                        <td>将本地仓库推送到远程仓库</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 8: Step 2.6 -->
+        <div class="slide">
+            <div class="slide-title">项目开发流程</div>
+            <div class="slide-content">
+                <h3>Step 2.6 参与项目开发流程</h3>
+                <ol>
+                    <li>Fork 项目：访问 DoCodeClub 仓库，点击右上角的"Fork"按钮，将项目复制到自己的 GitHub 账号下</li>
+                    <li>克隆仓库到本地：</li>
+                </ol>
+                <div class="code-block"># 使用SSH URL（推荐已配置SSH的用户）
+git clone git@github.com:你的用户名/DoCodeClub.git
+# 或使用HTTPS URL
+# git clone https://github.com/你的用户名/DoCodeClub.git</div>
+                
+                <ol start="3">
+                    <li>修改代码并提交：</li>
+                </ol>
+                <div class="code-block">cd DoCodeClub
+# 编辑文件后...
+git add .
+git commit -m "添加我的作业/功能"
+git push origin main</div>
+                
+                <ol start="4">
+                    <li>创建 Pull Request：回到 GitHub，在你的仓库页面点击"Compare & pull request"，填写必要信息后提交</li>
+                </ol>
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic8.png" alt="GitHub Pull Request创建界面的截图">
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Slide 9: Step 3.1-3.2 -->
+        <div class="slide">
+            <div class="slide-title">Step 3：Anaconda 安装与使用</div>
+            <div class="slide-content">
+                <h3>Step 3.1 Anaconda 简介</h3>
+                <p>Anaconda 是一个开源的 Python 发行版，专为科学计算、数据分析和机器学习设计，它具有以下优势：</p>
+                <ul>
+                    <li>环境管理：可创建多个独立的 Python 环境，避免项目间依赖冲突</li>
+                    <li>包管理：通过 conda 命令快速安装/更新/卸载各种 Python 包</li>
+                    <li>内置工具：包含 Jupyter Notebook、Spyder IDE 等开发工具</li>
+                    <li>预装库：包含 NumPy、Pandas、Matplotlib 等数据科学常用库</li>
+                </ul>
+
+                <div class="slide-image">
+                    <img src="pic/pic4.png" alt="Anaconda简介图">
+                </div>
+
+                <h3>Step 3.2 安装 Anaconda</h3>
+                <ol>
+                    <li>访问 <a href="https://www.anaconda.com/products/distribution" target="_blank">Anaconda 官网下载页</a></li>
+                    <li>选择适合你操作系统的版本并下载（通常选择 Python 3.x 版本）</li>
+                    <li>安装步骤：
+                        <ul>
+                            <li>Windows：双击安装包，按照向导完成安装</li>
+                            <li>macOS：打开 .pkg 文件，按照提示完成安装</li>
+                            <li>Linux：在终端执行下载的 .sh 文件</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>安装完成后，可通过在终端或命令提示符中输入以下命令验证：</p>
+                <div class="code-block">conda --version
+python --version</div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Step 3.3-3.4 -->
+        <div class="slide">
+            <div class="slide-title">Anaconda 环境管理</div>
+            <div class="slide-content">
+                <h3>Step 3.3 创建与管理虚拟环境</h3>
+                <p>虚拟环境是 Python 项目开发的最佳实践，它允许你为不同项目创建隔离的 Python 环境。</p>
+                
+                <p><strong>创建环境：</strong></p>
+                <div class="code-block"># 创建名为 "docode" 的 Python 3.10 环境
+conda create -n docode python=3.10</div>
+                
+                <p><strong>环境管理常用命令：</strong></p>
+                <div class="code-block"># 激活环境
+conda activate docode
+
+# 查看当前环境已安装的包
+conda list
+
+# 在当前环境安装包
+conda install numpy pandas matplotlib
+
+# 退出当前环境
+conda deactivate
+
+# 查看所有环境
+conda env list
+
+# 删除环境（谨慎使用）
+conda remove -n docode --all</div>
+
+                <h3>Step 3.4 Anaconda Navigator</h3>
+                <p>Anaconda Navigator 是一个图形界面，可以帮助你管理环境、包和应用程序，无需使用命令行：</p>
+                <ol>
+                    <li>在开始菜单或应用程序列表中启动 Anaconda Navigator</li>
+                    <li>通过 "Environments" 标签创建和管理环境</li>
+                    <li>通过 "Home" 标签启动 Jupyter Notebook、VS Code 等应用</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 11: Step 4.1-4.2 -->
+        <div class="slide">
+            <div class="slide-title">Step 4：Python 基础入门</div>
+            <div class="slide-content">
+                <h3>Step 4.1 Python 简介</h3>
+                <p>Python 是一种高级编程语言，以简洁、易读和强大的语法特性著称。它被广泛应用于：</p>
+                <ul>
+                    <li>网站与互联网应用开发</li>
+                    <li>数据分析与可视化</li>
+                    <li>人工智能与机器学习</li>
+                    <li>自动化脚本与工具开发</li>
+                </ul>
+<!-- 
+                <div class="slide-image">
+                    <img src="/pic/pic11.png" alt="Python Logo与应用领域图示">
+                </div> -->
+
+                <h3>Step 4.2 运行 Python 代码的方式</h3>
+                <p><strong>交互式环境：</strong></p>
+                <div class="code-block"># 在终端启动 Python 解释器
+python
+>>> print("Hello, DoCode!")
+Hello, DoCode!
+>>> 2 + 3
+5</div>
+
+                <p><strong>脚本文件：</strong></p>
+                <p>创建一个文件 hello.py ：</p>
+                <div class="code-block"># 这是一个简单的 Python 程序
+print("Hello, DoCode Camp!")
+# 计算并显示 1 到 10 的和
+total = sum(range(1, 11))
+print(f"1到10的和是: {total}")</div>
+
+                <p>在终端运行：</p>
+                <div class="code-block">python hello.py</div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Step 4.3 (part 1) -->
+        <div class="slide">
+            <div class="slide-title">Python 基础语法 (1)</div>
+            <div class="slide-content">
+                <h3>Step 4.3 Python 基础语法</h3>
+                
+                <p><strong>变量与数据类型：</strong></p>
+                <div class="code-block"># 数字
+age = 18
+height = 175.5
+
+# 字符串
+name = "张三"
+greeting = f"你好，{name}！"
+
+# 布尔值
+is_student = True
+
+# 列表（可修改）
+scores = [85, 92, 78, 90]
+
+# 元组（不可修改）
+coordinates = (120.5, 30.3)
+
+# 字典（键值对）
+student = {
+    "id": "2025001",
+    "name": "李四",
+    "age": 19,
+    "courses": ["数学", "编程"]
+}</div>
+
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic12.png" alt="Python数据类型示意图">
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Slide 13: Step 4.3 (part 2) -->
+        <div class="slide">
+            <div class="slide-title">Python 基础语法 (2)</div>
+            <div class="slide-content">
+                <p><strong>条件语句：</strong></p>
+                <div class="code-block">score = 85
+if score >= 90:
+    print("优秀")
+elif score >= 80:
+    print("良好")
+elif score >= 60:
+    print("及格")
+else:
+    print("不及格")</div>
+
+                <p><strong>循环：</strong></p>
+                <div class="code-block"># for 循环
+for i in range(5):
+    print(i) # 输出 0, 1, 2, 3, 4
+
+# while 循环
+count = 0
+while count < 3:
+    print(f"count = {count}")
+    count += 1</div>
+
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic13.png" alt="Python流程控制示意图">
+                </div> -->
+
+                <p><strong>函数：</strong></p>
+                <div class="code-block">def calculate_average(numbers):
+    """计算一组数字的平均值"""
+    if not numbers:
+        return 0
+    return sum(numbers) / len(numbers)
+
+# 调用函数
+scores = [85, 92, 78, 90]
+avg = calculate_average(scores)
+print(f"平均分: {avg}")</div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Step 5 -->
+        <div class="slide">
+            <div class="slide-title">Step 5：项目结构与开发规范</div>
+            <div class="slide-content">
+                <h3>Step 5.1 标准 Python 项目结构</h3>
+                <p>一个普通的项目通常包含以下文件和目录：</p>
+                <div class="code-block">code/
+├── README.md         # 项目说明
+├── .gitignore        # Git忽略文件
+├── app.py            # 主程序入口
+├── requirements.txt  # 项目依赖列表
+├── config.py         # 配置项
+├── static/           # 前端：静态资源（CSS/JS/图片等）
+├── templates/        # 前端：HTML模板
+├── core/             # 后端：项目核心模块</div>
+<!-- 
+                <div class="slide-image">
+                    <img src="/pic/pic14.png" alt="Python项目结构示意图">
+                </div> -->
+
+                <h3>Step 5.2 代码风格指南</h3>
+                <p>遵循 PEP 8 规范：</p>
+                <ol>
+                    <li>命名规范：
+                        <ul>
+                            <li>变量和函数名使用小写字母，单词间用下划线连接： user_name</li>
+                            <li>类名使用驼峰式： UserProfile</li>
+                            <li>常量全部大写： MAX_USERS</li>
+                        </ul>
+                    </li>
+                    <li>缩进：使用 4 个空格（不要使用制表符 Tab）</li>
+                    <li>注释：
+                        <ul>
+                            <li>单行注释： # 这是一个注释</li>
+                            <li>文档字符串：
+                                <div class="code-block">def my_function():
+    """
+    函数说明
+    :return: 返回值说明
+    """</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 15: Step 6 -->
+        <div class="slide">
+            <div class="slide-title">Step 6：作业提交规范</div>
+            <div class="slide-content">
+                <h3>Step 6.1 作业要求</h3>
+                <ol>
+                    <li>在 GitHub 上 fork DoCodeClub 仓库</li>
+                    <li>将仓库克隆到本地： <code>git clone https://github.com/你的用户名/DoCodeClub.git</code></li>
+                    <li>在 1st_DoCodeClub_202505 目录下创建以你姓名拼音命名的文件夹（如 zhang_san ）</li>
+                    <li>在你的文件夹中完成作业并提交</li>
+                    <li>提交 Pull Request 到原仓库</li>
+                </ol>
+
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic15.png" alt="作业提交流程图">
+                </div> -->
+
+                <h3>Step 6.2 Git 提交规范</h3>
+                <p>commit 信息应当清晰明了，建议格式：</p>
+                <div class="code-block">[作业编号] 简短描述
+详细说明（可选）</div>
+                <p>例如：</p>
+                <div class="code-block">[Homework-1] 完成Python基础练习
+- 实现了列表操作函数
+- 添加了字符串处理示例
+- 修复了循环示例中的bug</div>
+
+                <h3>Step 6.3 代码质量要求</h3>
+                <ol>
+                    <li>代码应有适当的注释，说明功能和实现思路</li>
+                    <li>变量和函数命名要有意义，避免使用 a、b、temp 等无意义名称</li>
+                    <li>代码逻辑清晰，避免过于复杂的嵌套结构</li>
+                    <li>确保代码能够正常运行，没有明显错误</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 16: Step 7.1 -->
+        <div class="slide">
+            <div class="slide-title">Step 7：常见问题与解决方案 (1)</div>
+            <div class="slide-content">
+                <h3>Step 7.1 Git 相关</h3>
+                
+                <p><strong>Q: 提交代码时出现 "Please tell me who you are" 错误</strong></p>
+                <p>A: 需要配置用户信息：</p>
+                <div class="code-block">git config --global user.name "你的名字"
+git config --global user.email "你的邮箱"</div>
+
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic16.png" alt="Git错误解决方案图示">
+                </div> -->
+
+                <p><strong>Q: 如何解决合并冲突？</strong></p>
+                <p>A: 当多人修改同一文件时可能发生冲突。解决步骤：</p>
+                <ol>
+                    <li>git pull 更新代码</li>
+                    <li>手动编辑冲突文件（查找 &lt;&lt;&lt;&lt;&lt;&lt;&lt; , ======= , &gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记）</li>
+                    <li>解决冲突后， git add 标记为已解决</li>
+                    <li>git commit 完成合并</li>
+                </ol>
+
+                <p><strong>Q: 使用SSH连接GitHub时显示"Permission denied (publickey)"</strong></p>
+                <p>A: 可能的原因和解决方法：</p>
+                <ol>
+                    <li>确认SSH密钥已添加到GitHub账户</li>
+                    <li>检查SSH代理是否运行： <code>eval "$(ssh-agent -s)"</code> ，然后 <code>ssh-add ~/.ssh/id_ed25519</code></li>
+                    <li>确认你使用的是正确的SSH URL格式： <code>git@github.com:用户名/仓库名.git</code></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 17: Step 7.2-7.3 -->
+        <div class="slide">
+            <div class="slide-title">Step 7：常见问题与解决方案 (2)</div>
+            <div class="slide-content">
+                <h3>Step 7.2 Anaconda 相关</h3>
+                
+                <p><strong>Q: conda 命令未找到</strong></p>
+                <p>A: 确保 Anaconda 已正确安装，并将其添加到系统 PATH 中。可尝试重启终端或电脑。</p>
+                
+                <p><strong>Q: 如何解决包安装失败问题？</strong></p>
+                <p>A: 尝试以下方法：</p>
+                <ol>
+                    <li>更新 conda： <code>conda update conda</code></li>
+                    <li>尝试使用国内镜像源：</li>
+                </ol>
+                <div class="code-block">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes</div>
+<!-- 
+                <div class="slide-image">
+                    <img src="/pic/pic17.png" alt="Anaconda问题解决方案图示">
+                </div> -->
+
+                <h3>Step 7.3 Python 相关</h3>
+                
+                <p><strong>Q: 导入模块时出现 "ModuleNotFoundError"</strong></p>
+                <p>A: 检查以下几点：</p>
+                <ol>
+                    <li>确认模块已安装： <code>pip list</code> 或 <code>conda list</code></li>
+                    <li>如未安装，执行： <code>pip install 模块名</code> 或 <code>conda install 模块名</code></li>
+                    <li>检查当前是否在正确的虚拟环境中</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 18: Step 8 -->
+        <div class="slide">
+            <div class="slide-title">Step 8：参考资料与学习资源</div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="column">
+                        <p><strong>1. Git 学习资源：</strong></p>
+                        <ul>
+                            <li><a href="https://git-scm.com/doc" target="_blank">Git 官方文档</a></li>
+                            <li><a href="https://docs.github.com/cn" target="_blank">GitHub 使用指南</a></li>
+                            <li><a href="https://rogerdudler.github.io/git-guide/index.zh.html" target="_blank">Git 简明指南</a></li>
+                        </ul>
+                        
+                        <p><strong>2. Python 学习资源：</strong></p>
+                        <ul>
+                            <li><a href="https://docs.python.org/zh-cn/3/" target="_blank">Python 官方文档</a></li>
+                            <li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank">廖雪峰 Python 教程</a></li>
+                            <li>Python 编程：从入门到实践（书籍）</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <p><strong>3. 数据科学与机器学习资源：</strong></p>
+                        <ul>
+                            <li><a href="https://numpy.org/doc/stable/" target="_blank">NumPy 官方文档</a></li>
+                            <li><a href="https://pandas.pydata.org/docs/" target="_blank">Pandas 官方文档</a></li>
+                            <li><a href="https://matplotlib.org/stable/users/index.html" target="_blank">Matplotlib 官方文档</a></li>
+                        </ul>
+                        
+                        <p><strong>4. 在线学习平台：</strong></p>
+                        <ul>
+                            <li><a href="https://leetcode.com/" target="_blank">LeetCode</a>：算法练习</li>
+                            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a>：各类课程</li>
+                            <li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a>：数据科学课程</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic18.png" alt="学习资源展示图">
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Slide 19: Conclusion -->
+        <div class="slide">
+            <div class="slide-title">总结</div>
+            <div class="slide-content" style="text-align: center;">
+                <p>祝各位在 DoCode 营中学习愉快，掌握实用技能！</p>
+                <div class="slide-image">
+                    <img src="pic/pic1.png" alt="结束页面图片">
+                </div>
+                <p>期待你们的精彩表现！</p>
+            </div>
+        </div>
+
+        <!-- Slide 20: Q&A -->
+        <div class="slide">
+            <div class="slide-title">答疑环节</div>
+            <div class="slide-content" style="text-align: center;">
+                <!-- <div class="slide-image">
+                    <img src="/pic/pic20.png" alt="答疑环节图片">
+                </div> -->
+                <p style="font-size: 24px; margin-top: 40px;">有问题请随时提问！</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 解决中文编码问题 - 检查字符编码
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("页面已加载，确保使用UTF-8编码");
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideCounter = document.getElementById('slide-counter');
+        
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
+            
+            slides[index].classList.add('active');
+            currentSlide = index;
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+        
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        document.getElementById('next-btn').addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            } else if (e.key === 'ArrowRight') {
+                showSlide(currentSlide + 1);
+            }
+        });
+        
+        // Download functionality
+        document.getElementById('download-btn').addEventListener('click', async () => {
+            alert('提示：PPT生成功能需要集成第三方库实现。在实际应用中，您可以使用html2canvas和pptxgenjs等库来完成从HTML到PPT的转换。由于浏览器安全限制，此演示版本无法完成实际的下载功能。');
+        });
+        
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
